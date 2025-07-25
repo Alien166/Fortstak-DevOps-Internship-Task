@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  mymongo:
+    image: mongo
+    container_name: mymongo
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: secret
+
+  fortstak-task:
+    image: ghcr.io/alien166/fortstak-task:latest
+    container_name: fortstak-task
+    ports:
+      - "4000:4000"
+    env_file:
+      - .env
+    depends_on:
+      - mymongo
