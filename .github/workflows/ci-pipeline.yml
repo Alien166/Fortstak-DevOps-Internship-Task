@@ -26,8 +26,8 @@ jobs:
 
       - name: Build Docker image
         run: |
-          docker build -t ghcr.io/${{ github.repository_owner }}/fortstak-task:latest .
+          docker build -t ghcr.io/${{ github.repository_owner,, }}/fortstak-task:latest .
 
       - name: Push image to GHCR
         run: |
-          docker push ghcr.io/${{ github.repository_owner }}/fortstak-task:latest
+          docker push ghcr.io/${{ github.repository_owner,, }}/fortstak-task:latest
